@@ -4,20 +4,25 @@ import HomePage from './pages/home.jsx'
 import Room from './pages/room.jsx';
 
 import { SocketProvider } from './providers/socket.jsx';
+import { peerProvider } from './providers/peer.jsx';
 
 
 const App = () => {
   return (
     <>
+      <SocketProvider>
+        <peerProvider>
+
     <Routes>
-      {/* <SocketProvider> */}
 
         <Route path="/" element={<HomePage/>} />
         <Route path='/room/:roomId' element={<Room/>}/>
      
-      {/* </SocketProvider> */}
-     
       </Routes>
+
+        </peerProvider>
+      </SocketProvider>
+     
     <div>
       
     </div>
