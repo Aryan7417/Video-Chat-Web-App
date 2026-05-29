@@ -4,15 +4,27 @@ import {BrowserRouter} from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import { SocketProvider } from './providers/socket.jsx'
+import { PeerProvider } from './providers/peer.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   
-    <BrowserRouter>
-    <SocketProvider>
+    // <BrowserRouter>
+    // <SocketProvider>
+    //     <PeerProvider>
 
-    <App />
-    </SocketProvider>
-    </BrowserRouter>
+
+    // <App />
+    //     </PeerProvider>
+    // </SocketProvider>
+    // </BrowserRouter>
+
+    <BrowserRouter>
+  <SocketProvider>
+    <PeerProvider>
+      <App />
+    </PeerProvider>
+  </SocketProvider>
+</BrowserRouter>
 
 )

@@ -4,14 +4,14 @@ import HomePage from './pages/home.jsx'
 import Room from './pages/room.jsx';
 
 import { SocketProvider } from './providers/socket.jsx';
-import { peerProvider } from './providers/peer.jsx';
+//import { PeerProvider } from './providers/peer.jsx';
 
 
 const App = () => {
   return (
     <>
-      <SocketProvider>
-        <peerProvider>
+      {/* <SocketProvider> */}
+        {/* <PeerProvider> */}
 
     <Routes>
 
@@ -20,8 +20,8 @@ const App = () => {
      
       </Routes>
 
-        </peerProvider>
-      </SocketProvider>
+        {/* </PeerProvider> */}
+      {/* </SocketProvider> */}
      
     <div>
       

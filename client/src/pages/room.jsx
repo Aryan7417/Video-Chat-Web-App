@@ -1,21 +1,22 @@
 import React, { useCallback, useEffect } from 'react'
-import { useSocket } from '../providers/socket'
-import { usePeer } from '../providers/peer';
-import { data } from 'react-router-dom';
-import { from } from 'node:stream/iter';
+import { useSocket } from '../providers/socket.jsx'
+import { usePeer } from '../providers/peer.jsx';
+// import { data } from 'react-router-dom';
+// import { from } from 'node:stream/iter';
 
 const room = () => {
   const{socket} = useSocket();
-  const{ peer,createoffer } = usePeer()
+  const{ peer,createOffer } = usePeer()
 
-  const handelNewUserJoined = useCallback( async (datā)=>{
+  const handelNewUserJoined = useCallback( async (data)=>{
     const {emailId} = data
     console.log('New user joined room', emailId)
-    const offer =- await createoffer();
+    const offer = await createOffer();
     socket.emit("call-user",{emailId,offer})
+    console.log(offer)
 
   },
-  [createoffer,socket]
+  [createOffer,socket]
 
 )
 
@@ -26,7 +27,7 @@ const handelIncommingCall = useCallback((data)=>{
 
   useEffect(()=>{
     socket.on("user-joined",handelNewUserJoined)
-    socket.on('incomming-call',handelNewUserJoined)
+    socket.on('incomming-call',handelIncommingCall)
     },[handelNewUserJoined,socket])
 
 
